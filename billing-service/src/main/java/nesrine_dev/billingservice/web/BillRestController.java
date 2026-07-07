@@ -12,14 +12,21 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class BillRestController {
-    @Autowired
+
     private BillRepository billRepository;
-    @Autowired
     private ProductItemRepository productItemRepository;
-    @Autowired
     private CustomerRestClient customerRestClient;
-    @Autowired
     private ProductRestClient productRestClient;
+
+    public BillRestController(BillRepository billRepository,
+                              ProductItemRepository productItemRepository,
+                              CustomerRestClient customerRestClient,
+                              ProductRestClient productRestClient) {
+        this.billRepository = billRepository;
+        this.productItemRepository = productItemRepository;
+        this.customerRestClient = customerRestClient;
+        this.productRestClient = productRestClient;
+    }
 
     @GetMapping(path = "/bills/{id}")
     public Bill getBill(@PathVariable Long id){

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,14 +8,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './products.css',
 })
 export class Products implements OnInit{
-  public products : any;
-  constructor(private http : HttpClient){
-    }
+  public products = signal<any[]>([]);
+
+  constructor(private http : HttpClient){}
 
   ngOnInit(){
-    this.http.get("http://localhost:8082/monoApi/products").subscribe({
+    this.http.get<any[]>("http://localhost:8082/monoApi/products").subscribe({
       next : data => {
-        this.products = data;
+        this.products.set(data);
       },
       error : err => {
         console.log(err);

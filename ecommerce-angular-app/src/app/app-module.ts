@@ -15,6 +15,7 @@ import { App } from './app';
 import { Products } from './ui/products/products';
 import { Customers } from './ui/customers/customers';
 import { Forbidden } from './ui/forbidden/forbidden';
+import { Home } from './ui/home/home';
 
 // définit un pattern regex précisant sur quelles URLs le token doit être ajouté
 const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
@@ -26,7 +27,8 @@ const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
     App,
     Products,
     Customers,
-    Forbidden
+    Forbidden,
+    Home
   ],
   imports: [
     BrowserModule,

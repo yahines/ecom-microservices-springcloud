@@ -7,15 +7,27 @@
           <value>
             <TabSessionState>
               <option name="provider" value="claude" />
-              <option name="sessionId" value="bca8683e-acd7-4c9c-81c7-c98ad27e0e95" />
+              <option name="sessionId" value="1896e2dd-28d6-4d4a-86fa-058059d8ffe2" />
               <option name="cwd" value="E:\auto_formation\Dev_JAVA\ecommerce-micro-app" />
               <option name="model" value="claude-sonnet-4-6" />
               <option name="permissionMode" value="default" />
-              <option name="reasoningEffort" value="medium" />
+            </TabSessionState>
+          </value>
+        </entry>
+        <entry key="1">
+          <value>
+            <TabSessionState>
+              <option name="provider" value="claude" />
+              <option name="sessionId" value="87ced0fc-4d83-4c4d-9be7-e624db6d9931" />
+              <option name="cwd" value="E:\auto_formation\Dev_JAVA\ecommerce-micro-app" />
+              <option name="model" value="claude-sonnet-4-6" />
+              <option name="permissionMode" value="default" />
+              <option name="reasoningEffort" value="high" />
             </TabSessionState>
           </value>
         </entry>
       </map>
     </option>
+    <option name="tabCount" value="2" />
   </component>
 </project>

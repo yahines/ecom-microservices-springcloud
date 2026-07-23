@@ -26,13 +26,13 @@ public class ProductRestController {
     }
 
     @GetMapping("/products")
-    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping("/products/{id}")
+//    @PreAuthorize("hasAuthority('ADMIN')")
     public Product findById(@PathVariable String id) {
         return productRepository.findById(id).get();
     }

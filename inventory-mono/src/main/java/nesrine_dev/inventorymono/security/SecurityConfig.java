@@ -33,10 +33,18 @@ public class SecurityConfig {
                            .headers(h -> h.frameOptions(fo -> fo.disable()))
                 // inutile apres securisation par app.properties
                 //         .authorizeHttpRequests(ar -> ar.requestMatchers("/monoApi/**","/h2-console/**").permitAll())
-                           .authorizeHttpRequests(ar -> ar.requestMatchers("/h2-console/**").permitAll())
+                           .authorizeHttpRequests(ar -> ar
+                                   .requestMatchers(
+                                           "/monoApi/products/**",
+                                           "/h2-console/**",
+                                           "/swagger-ui.html",
+                                           "/swagger-ui/**",
+                                           "/v3/api-docs/**"
+                                   ).permitAll().anyRequest().authenticated()
+                           )
                 // specified in rest controller and annotation
                 //           .authorizeHttpRequests(ar -> ar.requestMatchers("/monoApi/products/**").hasAuthority("ADMIN"))
-                           .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
+                //          .authorizeHttpRequests(ar -> ar.anyRequest().authenticated())
                 //         .oauth2ResourceServer(o2 -> o2.jwt(Customizer.withDefaults()))
                            .oauth2ResourceServer(o2 -> o2.jwt(jwt -> jwt.jwtAuthenticationConverter(jwtAuthConverter)))
                            .build();

@@ -7,7 +7,7 @@ import {
   includeBearerTokenInterceptor,
   createInterceptorCondition,
   INCLUDE_BEARER_TOKEN_INTERCEPTOR_CONFIG,
-  IncludeBearerTokenCondition
+  IncludeBearerTokenCondition,
 } from 'keycloak-angular';
 
 import { AppRoutingModule } from './app-routing-module';
@@ -16,25 +16,21 @@ import { Products } from './ui/products/products';
 import { Customers } from './ui/customers/customers';
 import { Forbidden } from './ui/forbidden/forbidden';
 import { Home } from './ui/home/home';
+import { Orders } from './ui/orders/orders';
+import { OrderDetails } from './ui/order-details/order-details';
 
 // définit un pattern regex précisant sur quelles URLs le token doit être ajouté
 const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
-  urlPattern: /^http:\/\/localhost:8082(\/.*)?$/i,
+  urlPattern: /^http:\/\/localhost(:\d+)?(\/.*)?$/i,
 });
 
 @NgModule({
-  declarations: [
-    App,
-    Products,
-    Customers,
-    Forbidden,
-    Home
-  ],
+  declarations: [App, Products, Customers, Forbidden, Home, Orders, OrderDetails],
   imports: [
     BrowserModule,
     AppRoutingModule,
-//     HttpClientModule,
-    KeycloakAngularModule
+    //     HttpClientModule,
+    KeycloakAngularModule,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
@@ -44,13 +40,13 @@ const urlCondition = createInterceptorCondition<IncludeBearerTokenCondition>({
       config: {
         url: 'http://localhost:8090',
         realm: 'nesrine-dev-realm',
-        clientId: 'ecom-ang'
+        clientId: 'ecom-ang',
       },
       initOptions: {
         onLoad: 'check-sso',
-        silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html'
-      }
-    })
+        silentCheckSsoRedirectUri: window.location.origin + '/silent-check-sso.html',
+      },
+    }),
   ],
   bootstrap: [App],
 })

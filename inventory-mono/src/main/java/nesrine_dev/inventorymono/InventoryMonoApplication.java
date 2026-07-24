@@ -20,19 +20,22 @@ public class InventoryMonoApplication {
     CommandLineRunner init(ProductRepository productRepository) {
         return args -> {
             productRepository.save(Product.builder()
-                    .id(UUID.randomUUID().toString())
+                    .id("P01")
+//                    .id(UUID.randomUUID().toString())
                     .name("Computer")
                     .price(3500)
                     .quantity(11)
                     .build());
             productRepository.save(Product.builder()
-                    .id(UUID.randomUUID().toString())
+                    .id("P02")
+//                    .id(UUID.randomUUID().toString())
                     .name("Printer")
                     .price(1800)
                     .quantity(10)
                     .build());
             productRepository.save(Product.builder()
-                    .id(UUID.randomUUID().toString())
+                    .id("P03")
+//                    .id(UUID.randomUUID().toString())
                     .name("Smartphone")
                     .price(4500)
                     .quantity(81)
